@@ -15,7 +15,7 @@ Sito statico, una sola pagina, senza dipendenze esterne (font self-hosted, nessu
 | `CNAME` | Da creare con dentro `reweke.it` solo quando si collega il dominio |
 
 ## Stato: STAGING online
-URL di staging: https://reweke-it.github.io/reweke-web/ (repository `Reweke-it/reweke-web`). Il sito è `noindex` (meta robots e robots.txt) e ha l'etichetta "Staging" in basso a sinistra. **Al lancio**: togliere l'etichetta `.stg`, ripristinare robots (index, canonical `https://reweke.it/`, og:url e og:image su reweke.it, robots.txt con Sitemap) e collegare il dominio.
+URL di staging: https://reweke-it.github.io/web/ (repository `Reweke-it/web`). Il sito è `noindex` (meta robots e robots.txt) e ha l'etichetta "Staging" in basso a sinistra. **Al lancio**: togliere l'etichetta `.stg`, ripristinare robots (index, canonical `https://reweke.it/`, og:url e og:image su reweke.it, robots.txt con Sitemap) e collegare il dominio.
 
 ## Prima di pubblicare in produzione (da completare)
 0. **Sezione MyReweke**: nel testo è presentata come disponibile. Prima del lancio il portale deve esserlo davvero (accesso clienti, dati reali, privacy completata).
@@ -27,7 +27,7 @@ URL di staging: https://reweke-it.github.io/reweke-web/ (repository `Reweke-it/r
 6. Il testo "Prima consulenza senza impegno" va confermato come offerta commerciale.
 
 ## Pubblicazione su GitHub Pages
-1. Nuova organizzazione GitHub collegata all'account Kanzo-it (es. `Reweke-it`), repository `reweke-web` con il contenuto di questa cartella nella radice.
+1. Nuova organizzazione GitHub collegata all'account Kanzo-it (es. `Reweke-it`), repository `web` con il contenuto di questa cartella nella radice.
 2. Settings, Pages: Deploy from a branch, `main`, `/ (root)`.
 3. Quando c'è il controllo del dominio: creare `CNAME` con `reweke.it`, aggiungere il dominio tra i *Verified domains* dell'organizzazione (record TXT) e attivare Enforce HTTPS.
 
