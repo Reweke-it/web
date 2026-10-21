@@ -1,0 +1,3 @@
+# STAGING: non indicizzare. Al lancio sostituire con Allow: / e Sitemap.
+User-agent: *
+Disallow: /

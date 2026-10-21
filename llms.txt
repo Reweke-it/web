@@ -1,0 +1,15 @@
+# Reweke
+
+> Reweke S.r.l. è una Digital Trade Infrastructure: sourcing dai produttori in Asia, import via mare, logistica e spedizioni in Italia, visite in fabbrica in Cina. Un unico interlocutore, ogni fase documentata.
+
+## Servizi
+- Trading e sourcing: ricerca e qualifica di produttori in Cina, campionatura, condizioni chiare (acconto 30%, saldo 70%).
+- Import via mare: container FCL e LCL, merce assicurata, sdoganamento affidato a doganalisti abilitati.
+- Logistica e spedizioni in Italia: software proprio, importazione massiva degli ordini, etichette e tracking, integrazione via API.
+- Experience in Cina: visite pianificate ai produttori partner, con follow-up e report.
+
+- MyReweke: portale clienti per richieste, offerte, ordini, documenti e stato delle spedizioni, con ruoli e permessi e API di integrazione.
+
+## Contatti
+- Email: info@reweke.it
+- Sito: https://reweke.it/

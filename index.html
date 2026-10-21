@@ -1,0 +1,482 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Reweke - Dall'Asia all'Italia, ogni passaggio sotto controllo</title>
+<meta name="description" content="Reweke è una Digital Trade Infrastructure: sourcing dai produttori in Asia, import via mare, spedizioni in Italia e visite in fabbrica, con un unico interlocutore e il portale MyReweke per seguire ogni ordine.">
+<!-- STAGING: al lancio ripristinare <link rel="canonical" href="https://reweke.it/"> -->
+<meta name="robots" content="noindex, nofollow"><!-- STAGING: al lancio tornare a "index, follow, max-image-preview:large" -->
+<meta name="author" content="Reweke S.r.l.">
+<meta name="theme-color" content="#0F3F44">
+<meta name="format-detection" content="telephone=no">
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="it_IT">
+<meta property="og:site_name" content="Reweke">
+<meta property="og:url" content="https://reweke-it.github.io/reweke-web/">
+<meta property="og:title" content="Reweke - Dall'Asia all'Italia, ogni passaggio sotto controllo">
+<meta property="og:description" content="Sourcing, import via mare e logistica in Italia con un unico interlocutore e il portale MyReweke.">
+<meta property="og:image" content="https://reweke-it.github.io/reweke-web/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="icon" href="favicon-32.png" type="image/png" sizes="32x32">
+<link rel="icon" href="favicon-192.png" type="image/png" sizes="192x192">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+<!-- Font self-hosted: nessuna chiamata a servizi esterni (più veloce e conforme GDPR) -->
+<link rel="preload" href="fonts/plus-jakarta-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Reweke",
+  "legalName": "Reweke S.r.l.",
+  "url": "https://reweke-it.github.io/reweke-web/",
+  "logo": "https://reweke-it.github.io/reweke-web/assets/logo-teal.png",
+  "email": "info@reweke.it",
+  "slogan": "End to end supply solutions",
+  "description": "Digital Trade Infrastructure per aziende che acquistano in Asia: sourcing, import via mare, logistica in Italia e visite in fabbrica."
+}
+</script>
+
+<style>
+@font-face{font-family:"Plus Jakarta Sans";src:url(fonts/plus-jakarta-sans-latin.woff2) format("woff2");font-weight:200 800;font-display:swap}
+@font-face{font-family:"Inter";src:url(fonts/inter-latin.woff2) format("woff2");font-weight:100 900;font-display:swap}
+
+:root{
+  --teal:#1A7A7A;          /* primario da brand manual */
+  --teal-ink:#145f61;      /* variante per testo su bianco (contrasto AA) */
+  --deep:#0F3F44;          /* sfondo scuro derivato dal primario */
+  --mint:#4ECDC4;          /* accento tecnologico: solo su fondi scuri */
+  --slate:#F4F6F9;         /* fondo di supporto */
+  --ink:#16292B;
+  --muted:#4B5F62;
+  --line:#DCE4E6;
+  --white:#fff;
+  --radius:16px;
+  --shadow:0 1px 2px rgba(15,63,68,.06),0 8px 24px rgba(15,63,68,.08);
+  --head:"Plus Jakarta Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --body:"Inter",system-ui,-apple-system,"Segoe UI",sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:84px}
+body{margin:0;font-family:var(--body);color:var(--ink);background:var(--white);line-height:1.6;font-size:17px;-webkit-font-smoothing:antialiased}
+img,svg{max-width:100%;display:block}
+a{color:inherit}
+.wrap{width:min(1180px,100% - 48px);margin-inline:auto}
+:focus-visible{outline:3px solid var(--mint);outline-offset:3px;border-radius:6px}
+.skip{position:absolute;left:-999px;top:8px;background:var(--white);color:var(--ink);padding:10px 14px;border-radius:8px;z-index:100}
+.skip:focus{left:8px}
+
+/* ---------- header ---------- */
+.top{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.9);backdrop-filter:saturate(1.4) blur(10px);border-bottom:1px solid transparent;transition:border-color .2s}
+.top.scrolled{border-bottom-color:var(--line)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;height:72px;gap:24px}
+.brand img{height:24px;width:auto}
+.nav{display:flex;align-items:center;gap:28px}
+.nav a{font-family:var(--head);font-weight:500;font-size:15px;text-decoration:none;color:var(--muted);transition:color .15s}
+.nav a:hover{color:var(--teal-ink)}
+.btn{display:inline-flex;align-items:center;gap:10px;font-family:var(--head);font-weight:600;font-size:15px;text-decoration:none;padding:13px 22px;border-radius:999px;border:1.5px solid transparent;transition:transform .15s,background .15s,color .15s,border-color .15s;cursor:pointer}
+.btn:hover{transform:translateY(-1px)}
+.btn-primary{background:var(--teal);color:#fff}
+.btn-primary:hover{background:var(--teal-ink)}
+.btn-ghost{border-color:rgba(255,255,255,.45);color:#fff}
+.btn-ghost:hover{border-color:#fff;background:rgba(255,255,255,.08)}
+.nav .btn{padding:10px 18px;color:#fff}
+.nav .btn:hover{color:#fff}
+.burger{display:none;background:none;border:0;padding:8px;cursor:pointer}
+.burger span{display:block;width:24px;height:2px;background:var(--ink);margin:5px 0;border-radius:2px;transition:transform .2s,opacity .2s}
+
+/* ---------- hero ---------- */
+.hero{position:relative;color:#fff;background:radial-gradient(1200px 600px at 85% -10%,rgba(78,205,196,.22),transparent 60%),linear-gradient(160deg,#0B3236 0%,var(--deep) 45%,#12595C 100%);overflow:hidden}
+.hero::before{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.05) 1px,transparent 1px);background-size:56px 56px;mask-image:radial-gradient(ellipse at 70% 40%,#000 0%,transparent 70%)}
+.hero .wrap{position:relative;display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center;padding-block:96px 104px}
+.eyebrow{display:inline-block;font-family:var(--head);font-weight:600;font-size:12.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--mint)}
+.hero h1{font-family:var(--head);font-weight:700;font-size:clamp(36px,5.2vw,62px);line-height:1.06;letter-spacing:-.02em;margin:18px 0 22px}
+.hero h1 em{font-style:normal;color:var(--mint)}
+.hero .lead{font-size:clamp(17px,1.6vw,20px);color:rgba(255,255,255,.82);max-width:34em;margin:0 0 34px}
+.cta{display:flex;flex-wrap:wrap;gap:14px}
+.hero .btn-primary{background:var(--mint);color:#0A2E31}
+.hero .btn-primary:hover{background:#7be0d9}
+.chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:40px;padding:0;list-style:none}
+.chips li{font-size:13.5px;padding:7px 14px;border:1px solid rgba(255,255,255,.22);border-radius:999px;color:rgba(255,255,255,.85)}
+
+.route{width:100%;height:auto}
+.route .trace{stroke:rgba(255,255,255,.18);stroke-width:2;fill:none}
+.route .flow{stroke:var(--mint);stroke-width:2.5;fill:none;stroke-dasharray:6 10;animation:flow 2.4s linear infinite}
+@keyframes flow{to{stroke-dashoffset:-64}}
+.route .node{fill:#0F3F44;stroke:var(--mint);stroke-width:2.5}
+.route .ring{fill:none;stroke:rgba(78,205,196,.35);stroke-width:1.5}
+.route text{font-family:var(--head);font-weight:600;font-size:16px;fill:#fff}
+.route .sub{font-family:var(--body);font-weight:400;font-size:13.5px;fill:rgba(255,255,255,.7)}
+
+/* ---------- sezioni ---------- */
+.sec{padding-block:104px}
+.sec.light{background:var(--slate)}
+.sec h2{font-family:var(--head);font-weight:700;font-size:clamp(28px,3.6vw,42px);line-height:1.12;letter-spacing:-.015em;margin:12px 0 18px;max-width:20em}
+.sec .eyebrow{color:var(--teal-ink)}
+.sec .intro{max-width:44em;color:var(--muted);font-size:18px;margin:0}
+.head{margin-bottom:52px}
+
+.pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:48px}
+.pillar{padding:28px;background:var(--white);border:1px solid var(--line);border-radius:var(--radius)}
+.pillar .n{font-family:var(--head);font-weight:700;color:var(--teal);font-size:14px;letter-spacing:.1em}
+.pillar h3{font-family:var(--head);font-size:21px;margin:10px 0 8px}
+.pillar p{margin:0;color:var(--muted);font-size:16px}
+
+.cards{display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
+.card{background:var(--white);border:1px solid var(--line);border-radius:var(--radius);padding:34px;box-shadow:var(--shadow);transition:transform .2s,box-shadow .2s}
+.card:hover{transform:translateY(-3px);box-shadow:0 2px 4px rgba(15,63,68,.08),0 16px 36px rgba(15,63,68,.12)}
+.ico{width:52px;height:52px;border-radius:14px;background:var(--deep);display:grid;place-items:center;margin-bottom:22px}
+.ico svg{width:26px;height:26px;stroke:var(--mint);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.card h3{font-family:var(--head);font-size:23px;margin:0 0 6px;letter-spacing:-.01em}
+.card .tag{color:var(--teal-ink);font-weight:500;margin:0 0 16px}
+.card ul{margin:0;padding:0;list-style:none}
+.card li{position:relative;padding-left:26px;margin:9px 0;color:var(--muted);font-size:16px}
+.card li::before{content:"";position:absolute;left:0;top:.72em;width:12px;height:2px;background:var(--teal);border-radius:2px}
+.card li::after{content:"";position:absolute;left:12px;top:calc(.72em - 3px);width:7px;height:7px;border-radius:50%;border:2px solid var(--teal);background:var(--white)}
+
+.steps{display:grid;grid-template-columns:repeat(6,1fr);gap:0;counter-reset:s;position:relative}
+.steps::before{content:"";position:absolute;left:4%;right:4%;top:22px;height:2px;background:linear-gradient(90deg,var(--teal) 0,var(--teal) 100%);opacity:.25}
+.step{position:relative;padding:0 14px 0 0}
+.step .dot{width:44px;height:44px;border-radius:50%;background:var(--white);border:2px solid var(--teal);display:grid;place-items:center;font-family:var(--head);font-weight:700;color:var(--teal-ink);font-size:15px;position:relative;z-index:1}
+.step h3{font-family:var(--head);font-size:17px;margin:16px 0 6px}
+.step p{margin:0;font-size:14.5px;color:var(--muted);line-height:1.5}
+.step.hl .dot{background:var(--teal);color:#fff}
+
+.split{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+.split p{color:var(--muted)}
+.badge{display:inline-block;font-family:var(--head);font-weight:600;font-size:12px;letter-spacing:.08em;text-transform:uppercase;background:rgba(26,122,122,.1);color:var(--teal-ink);padding:6px 12px;border-radius:999px;margin-bottom:14px}
+.mock{background:var(--white);border:1px solid var(--line);border-radius:20px;box-shadow:var(--shadow);overflow:hidden}
+.mock .bar{display:flex;gap:7px;padding:14px 18px;border-bottom:1px solid var(--line);background:var(--slate)}
+.mock .bar i{width:10px;height:10px;border-radius:50%;background:#cdd6d8}
+.mock .body{padding:24px}
+.mock h4{margin:0 0 4px;font-family:var(--head);font-size:16px}
+.mock small{color:var(--muted)}
+.track{list-style:none;margin:22px 0 0;padding:0;position:relative}
+.track::before{content:"";position:absolute;left:11px;top:8px;bottom:8px;width:2px;background:var(--line)}
+.track li{position:relative;padding:8px 0 8px 38px;font-size:15px;color:var(--muted)}
+.track li::before{content:"";position:absolute;left:3px;top:11px;width:18px;height:18px;border-radius:50%;background:var(--white);border:2px solid var(--line)}
+.track li.done{color:var(--ink)}
+.track li.done::before{background:var(--teal);border-color:var(--teal)}
+.track li.now{color:var(--ink);font-weight:600}
+.track li.now::before{border-color:var(--teal);box-shadow:0 0 0 5px rgba(26,122,122,.15)}
+.benefits{list-style:none;margin:22px 0 28px;padding:0}
+.benefits li{position:relative;padding:10px 0 10px 30px;color:var(--muted);font-size:16px;border-bottom:1px solid var(--line)}
+.benefits li:last-child{border-bottom:0}
+.benefits li::before{content:"";position:absolute;left:2px;top:1.05em;width:14px;height:8px;border-left:2.5px solid var(--teal);border-bottom:2.5px solid var(--teal);transform:rotate(-45deg)}
+.benefits strong{color:var(--ink);font-weight:600}
+.docs{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px;padding-top:18px;border-top:1px solid var(--line)}
+.docs span{font-size:13px;padding:5px 12px;border-radius:999px;background:var(--slate);color:var(--muted);border:1px solid var(--line)}
+
+.aud{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.aud div{padding:30px;border-radius:var(--radius);background:var(--white);border:1px solid var(--line)}
+.aud h3{font-family:var(--head);font-size:20px;margin:0 0 8px}
+.aud p{margin:0;color:var(--muted);font-size:16px}
+
+.contact{background:linear-gradient(160deg,#0B3236,var(--deep) 55%,#12595C);color:#fff;text-align:center}
+.contact .eyebrow{color:var(--mint)}
+.contact h2{color:#fff;margin-inline:auto}
+.contact .intro{color:rgba(255,255,255,.8);margin-inline:auto}
+.contact .cta{justify-content:center;margin-top:34px}
+.contact .btn-primary{background:var(--mint);color:#0A2E31}
+.contact .btn-primary:hover{background:#7be0d9}
+.mail{font-family:var(--head);font-weight:600;font-size:clamp(22px,3vw,30px);margin-top:26px;display:block;color:#fff;text-decoration:none}
+.mail:hover{color:var(--mint)}
+
+.stg{position:fixed;left:14px;bottom:14px;z-index:60;font:600 12px/1 var(--head);letter-spacing:.06em;text-transform:uppercase;background:#ffd98a;color:#4a3300;padding:8px 12px;border-radius:999px;box-shadow:0 4px 14px rgba(0,0,0,.18);pointer-events:none}
+.foot{background:#0A2E31;color:rgba(255,255,255,.7);padding-block:44px;font-size:14px}
+.foot .wrap{display:flex;flex-wrap:wrap;gap:24px 48px;justify-content:space-between;align-items:flex-start}
+.foot img{height:20px;margin-bottom:14px}
+.foot a{color:rgba(255,255,255,.85)}
+.foot p{margin:4px 0}
+.todo{background:rgba(255,200,87,.18);color:#ffd98a;padding:1px 6px;border-radius:5px}
+
+/* ---------- animazioni ---------- */
+.rev{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease}
+.rev.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}.rev{opacity:1;transform:none;transition:none}.route .flow{animation:none}.btn,.card{transition:none}
+}
+
+/* ---------- responsive ---------- */
+@media (max-width:960px){
+  .hero .wrap{grid-template-columns:1fr;gap:40px;padding-block:64px 72px}
+  .pillars,.aud{grid-template-columns:1fr}
+  .cards{grid-template-columns:1fr}
+  .split{grid-template-columns:1fr;gap:36px}
+  .steps{grid-template-columns:1fr 1fr;row-gap:30px}
+  .steps::before{display:none}
+  .sec{padding-block:72px}
+}
+@media (max-width:760px){
+  .burger{display:block}
+  .nav{position:absolute;left:0;right:0;top:72px;background:var(--white);flex-direction:column;align-items:stretch;gap:0;padding:8px 24px 20px;border-bottom:1px solid var(--line);display:none}
+  .nav.open{display:flex}
+  .nav a{padding:14px 0;border-bottom:1px solid var(--line)}
+  .nav .btn{margin-top:14px;justify-content:center;border:0}
+  .top.menu .burger span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+  .top.menu .burger span:nth-child(2){opacity:0}
+  .top.menu .burger span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+}
+@media (max-width:480px){
+  body{font-size:16px}
+  .wrap{width:min(1180px,100% - 32px)}
+  .steps{grid-template-columns:1fr}
+  .card{padding:26px}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Vai al contenuto</a>
+<div class="stg" aria-hidden="true">Staging · in revisione</div>
+
+<header class="top" id="top">
+  <div class="wrap">
+    <a class="brand" href="#inizio" aria-label="Reweke - torna in cima"><img src="assets/logo-teal.png" alt="Reweke" width="132" height="24"></a>
+    <button class="burger" id="burger" aria-label="Apri il menu" aria-expanded="false" aria-controls="nav"><span></span><span></span><span></span></button>
+    <nav class="nav" id="nav" aria-label="Sezioni">
+      <a href="#approccio">Approccio</a>
+      <a href="#servizi">Servizi</a>
+      <a href="#processo">Come lavoriamo</a>
+      <a href="#piattaforma">Piattaforma</a>
+      <a class="btn btn-primary" href="#contatti">Parla con noi</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <!-- HERO -->
+  <section class="hero" id="inizio">
+    <div class="wrap">
+      <div>
+        <span class="eyebrow">Digital Trade Infrastructure</span>
+        <h1>Dall'Asia all'Italia, ogni passaggio <em>sotto controllo</em>.</h1>
+        <p class="lead">Reweke tiene insieme la filiera tra Asia e Italia: sourcing dai produttori, import via mare, spedizioni sul territorio. Un solo interlocutore e un portale, MyReweke, per seguire ogni ordine.</p>
+        <div class="cta">
+          <a class="btn btn-primary" href="#contatti">Parla con noi</a>
+          <a class="btn btn-ghost" href="#servizi">Scopri i servizi</a>
+        </div>
+        <ul class="chips" aria-label="Aree di attività">
+          <li>Sourcing</li><li>Import via mare</li><li>Logistica in Italia</li><li>Visite in fabbrica</li><li>Portale MyReweke</li>
+        </ul>
+      </div>
+
+      <svg class="route" viewBox="0 0 560 400" role="img" aria-label="Schema della filiera: produttore in Cina, controllo qualità, viaggio via mare, dogana e consegna al cliente in Italia">
+        <path class="trace" d="M40 330 H150 V190 H300 V280 H420 V120 H520"/>
+        <path class="flow" d="M40 330 H150 V190 H300 V280 H420 V120 H520"/>
+        <g>
+          <circle class="ring" cx="40" cy="330" r="17"/><circle class="node" cx="40" cy="330" r="9"/>
+          <text x="40" y="366">Produttore</text><text class="sub" x="40" y="385">Cina</text>
+
+          <circle class="ring" cx="150" cy="190" r="17"/><circle class="node" cx="150" cy="190" r="9"/>
+          <text x="172" y="156">Controllo qualità</text><text class="sub" x="172" y="175">prima della spedizione</text>
+
+          <circle class="ring" cx="300" cy="280" r="17"/><circle class="node" cx="300" cy="280" r="9"/>
+          <text x="236" y="322">In viaggio</text><text class="sub" x="236" y="341">via mare, merce assicurata</text>
+
+          <circle class="ring" cx="420" cy="120" r="17"/><circle class="node" cx="420" cy="120" r="9"/>
+          <text x="300" y="68">Dogana</text><text class="sub" x="300" y="87">con doganalisti abilitati</text>
+
+          <circle class="ring" cx="520" cy="120" r="17"/><circle class="node" cx="520" cy="120" r="9" style="fill:#4ECDC4"/>
+          <text x="466" y="166">Cliente</text><text class="sub" x="466" y="185">Italia</text>
+        </g>
+      </svg>
+    </div>
+  </section>
+
+  <!-- APPROCCIO -->
+  <section class="sec" id="approccio">
+    <div class="wrap">
+      <div class="head rev">
+        <span class="eyebrow">Approccio</span>
+        <h2>Non un'agenzia di importazione. Un'infrastruttura.</h2>
+        <p class="intro">Chi compra in Asia spesso coordina da solo produttori, trader, spedizionieri e doganalisti, senza una vista unica. Reweke riunisce la filiera con processi standard e un software proprio: ogni ordine ha un percorso, un responsabile e documenti consultabili.</p>
+      </div>
+      <div class="pillars">
+        <div class="pillar rev"><span class="n">01</span><h3>Trasparenza</h3><p>Ogni fase è documentata, dall'ordine alla consegna, e le condizioni economiche sono chiare fin dall'inizio.</p></div>
+        <div class="pillar rev"><span class="n">02</span><h3>Controllo</h3><p>Le verifiche di qualità e conformità avvengono prima della spedizione, non dopo l'arrivo della merce.</p></div>
+        <div class="pillar rev"><span class="n">03</span><h3>Efficienza</h3><p>Un software proprio gestisce ordini, etichette e tracking, riducendo gli errori manuali e i passaggi duplicati.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVIZI -->
+  <section class="sec light" id="servizi">
+    <div class="wrap">
+      <div class="head rev">
+        <span class="eyebrow">Servizi</span>
+        <h2>Quattro servizi, un solo interlocutore.</h2>
+        <p class="intro">Puoi usarli insieme o separatamente. In ogni caso la responsabilità del coordinamento resta a noi.</p>
+      </div>
+      <div class="cards">
+        <article class="card rev">
+          <div class="ico"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"/><path d="m20 20-4.2-4.2"/></svg></div>
+          <h3>Trading e sourcing</h3>
+          <p class="tag">Dal brief al fornitore giusto.</p>
+          <ul>
+            <li>Ricerca e qualifica di produttori in Cina</li>
+            <li>Campionatura prima della conferma d'ordine</li>
+            <li>Condizioni chiare: acconto 30%, saldo 70%</li>
+          </ul>
+        </article>
+        <article class="card rev">
+          <div class="ico"><svg viewBox="0 0 24 24"><path d="M3 15h18l-2 4H5z"/><path d="M6 15V9h5v6M11 15V6h7v9"/><path d="M12 4V2"/></svg></div>
+          <h3>Import via mare</h3>
+          <p class="tag">Container, documenti e dogana in ordine.</p>
+          <ul>
+            <li>Container completi (FCL) e groupage (LCL) con vettori primari</li>
+            <li>Merce assicurata durante il trasporto</li>
+            <li>Sdoganamento affidato a doganalisti abilitati</li>
+          </ul>
+        </article>
+        <article class="card rev">
+          <div class="ico"><svg viewBox="0 0 24 24"><path d="M3 7l9-4 9 4-9 4z"/><path d="M3 7v10l9 4 9-4V7"/><path d="M12 11v10"/></svg></div>
+          <h3>Logistica e spedizioni in Italia</h3>
+          <p class="tag">Software proprio, corrieri nazionali.</p>
+          <ul>
+            <li>Importazione massiva degli ordini ed etichette automatiche</li>
+            <li>Tracking con notifiche sullo stato della spedizione</li>
+            <li>Integrazione via API con gestionali ed e-commerce</li>
+          </ul>
+        </article>
+        <article class="card rev">
+          <div class="ico"><svg viewBox="0 0 24 24"><path d="M3 21V9l6 3V9l6 3V5h6v16z"/><path d="M8 21v-4M13 21v-4M18 21v-4"/></svg></div>
+          <h3>Experience in Cina</h3>
+          <p class="tag">Vedere la fabbrica prima di sceglierla.</p>
+          <ul>
+            <li>Visite pianificate ai produttori partner</li>
+            <li>Preparazione, visita sul posto e follow-up</li>
+            <li>Report finale con valutazione dei fornitori visitati</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESSO -->
+  <section class="sec" id="processo">
+    <div class="wrap">
+      <div class="head rev">
+        <span class="eyebrow">Come lavoriamo</span>
+        <h2>Ogni ordine segue sei fasi.</h2>
+        <p class="intro">Dalla specifica tecnica alla consegna, con checkpoint definiti e responsabilità assegnate.</p>
+      </div>
+      <div class="steps">
+        <div class="step rev"><div class="dot">1</div><h3>Brief</h3><p>Specifica tecnica e obiettivo di costo.</p></div>
+        <div class="step rev"><div class="dot">2</div><h3>Scouting</h3><p>Ricerca diretta tra i produttori qualificati.</p></div>
+        <div class="step rev"><div class="dot">3</div><h3>Campionatura</h3><p>Prototipo fisico e validazione della qualità.</p></div>
+        <div class="step rev hl"><div class="dot">4</div><h3>Ordine</h3><p>Conferma con acconto del 30%.</p></div>
+        <div class="step rev"><div class="dot">5</div><h3>Controllo qualità</h3><p>Verifica prima della spedizione.</p></div>
+        <div class="step rev hl"><div class="dot">6</div><h3>Spedizione</h3><p>Saldo del 70% e tracking fino alla consegna.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PIATTAFORMA -->
+  <section class="sec light" id="piattaforma">
+    <div class="wrap split">
+      <div class="rev">
+        <span class="eyebrow" style="display:block">Piattaforma</span>
+        <h2>MyReweke: ogni ordine sotto controllo, in un solo portale.</h2>
+        <p>Richiedi un'offerta, approvala, segui produzione e spedizione, ritrova ogni documento. Tutto nello stesso posto, senza email e fogli di calcolo sparsi.</p>
+        <ul class="benefits">
+          <li><strong>Una sola vista.</strong> Richieste, offerte, ordini e spedizioni nello stesso ambiente, per tutto il tuo team.</li>
+          <li><strong>Dalla richiesta all'ordine, passo per passo.</strong> Offerta, proforma e ordine di acquisto con ogni approvazione tracciata.</li>
+          <li><strong>Documenti sempre a portata di mano.</strong> Proforma, fatture, packing list e documenti di trasporto archiviati per ordine.</li>
+          <li><strong>Stato della spedizione.</strong> Notifiche quando cambia lo stato e cronologia di ogni ordine.</li>
+          <li><strong>Ruoli e permessi.</strong> Ogni persona vede e approva solo ciò che le compete.</li>
+          <li><strong>Integrazioni.</strong> API per collegare il portale ai tuoi gestionali e al tuo e-commerce.</li>
+        </ul>
+        <a class="btn btn-primary" href="mailto:info@reweke.it?subject=Richiesta%20di%20accesso%20a%20MyReweke">Richiedi l'accesso</a>
+      </div>
+      <div class="rev">
+        <div class="mock" aria-hidden="true">
+          <div class="bar"><i></i><i></i><i></i></div>
+          <div class="body">
+            <h4>Ordine di esempio</h4>
+            <small>Stato aggiornato e documenti in un unico posto</small>
+            <ul class="track">
+              <li class="done">Ordine confermato</li>
+              <li class="done">Controllo qualità completato</li>
+              <li class="done">Imbarcato</li>
+              <li class="now">In viaggio via mare</li>
+              <li>Dogana</li>
+              <li>Consegnato</li>
+            </ul>
+            <div class="docs"><span>Proforma</span><span>Packing list</span><span>Fattura</span><span>Polizza</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PER CHI -->
+  <section class="sec" id="clienti">
+    <div class="wrap">
+      <div class="head rev">
+        <span class="eyebrow">A chi ci rivolgiamo</span>
+        <h2>Per aziende che comprano in Asia e vogliono un'unica regia.</h2>
+      </div>
+      <div class="aud">
+        <div class="rev"><h3>E-commerce</h3><p>Operatori digitali con volumi in crescita, molti codici articolo e bisogno di tempi certi.</p></div>
+        <div class="rev"><h3>Distributori</h3><p>Reti che richiedono continuità di stock, conformità normativa e approvvigionamenti prevedibili.</p></div>
+        <div class="rev"><h3>Produttori e brand</h3><p>Aziende che acquistano componenti o prodotti finiti dall'Asia con requisiti CE e ISO da rispettare.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTATTI -->
+  <section class="sec contact" id="contatti">
+    <div class="wrap">
+      <span class="eyebrow">Contatti</span>
+      <h2>Parliamo del tuo progetto di approvvigionamento.</h2>
+      <p class="intro">Raccontaci cosa vuoi acquistare e da dove: ti diciamo come lo impostiamo. La prima consulenza è senza impegno.</p>
+      <a class="mail" href="mailto:info@reweke.it?subject=Richiesta%20di%20contatto%20da%20reweke.it">info@reweke.it</a>
+      <div class="cta">
+        <a class="btn btn-primary" href="mailto:info@reweke.it?subject=Richiesta%20di%20contatto%20da%20reweke.it">Scrivici</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div>
+      <img src="assets/logo-white.png" alt="Reweke" width="110" height="20">
+      <p>End to end supply solutions</p>
+    </div>
+    <div>
+      <p><strong>Reweke S.r.l.</strong></p>
+      <!-- DA COMPLETARE prima della pubblicazione: sede legale, P.IVA, REA, capitale sociale (verificare dopo il cambio sede) -->
+      <p>Sede legale: <span class="todo">[da completare]</span></p>
+      <p>P.IVA: <span class="todo">[da completare]</span> · REA: <span class="todo">[da completare]</span> · Capitale sociale: <span class="todo">[da completare]</span></p>
+    </div>
+    <div>
+      <p><a href="mailto:info@reweke.it">info@reweke.it</a></p>
+      <p><a href="privacy.html">Informativa privacy</a></p>
+      <p>Questo sito non usa cookie né strumenti di tracciamento.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var top=document.getElementById('top'),nav=document.getElementById('nav'),b=document.getElementById('burger');
+  function onScroll(){top.classList.toggle('scrolled',window.scrollY>8)}
+  onScroll();window.addEventListener('scroll',onScroll,{passive:true});
+  b.addEventListener('click',function(){var o=nav.classList.toggle('open');top.classList.toggle('menu',o);b.setAttribute('aria-expanded',o)});
+  nav.addEventListener('click',function(e){if(e.target.tagName==='A'){nav.classList.remove('open');top.classList.remove('menu');b.setAttribute('aria-expanded','false')}});
+  var els=document.querySelectorAll('.rev');
+  if(!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('in')});return}
+  var io=new IntersectionObserver(function(es){es.forEach(function(x){if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target)}})},{threshold:.12,rootMargin:'0px 0px -40px 0px'});
+  els.forEach(function(e,i){e.style.transitionDelay=(i%3)*70+'ms';io.observe(e)});
+})();
+</script>
+</body>
+</html>
