@@ -141,13 +141,17 @@ a{color:inherit}
 .card li::before{content:"";position:absolute;left:0;top:.72em;width:12px;height:2px;background:var(--teal);border-radius:2px}
 .card li::after{content:"";position:absolute;left:12px;top:calc(.72em - 3px);width:7px;height:7px;border-radius:50%;border:2px solid var(--teal);background:var(--white)}
 
-.steps{display:grid;grid-template-columns:repeat(6,1fr);gap:0;counter-reset:s;position:relative}
-.steps::before{content:"";position:absolute;left:4%;right:4%;top:22px;height:2px;background:linear-gradient(90deg,var(--teal) 0,var(--teal) 100%);opacity:.25}
-.step{position:relative;padding:0 14px 0 0}
-.step .dot{width:44px;height:44px;border-radius:50%;background:var(--white);border:2px solid var(--teal);display:grid;place-items:center;font-family:var(--head);font-weight:700;color:var(--teal-ink);font-size:15px;position:relative;z-index:1}
-.step h3{font-family:var(--head);font-size:17px;margin:16px 0 6px}
+.steps{display:grid;grid-template-columns:repeat(6,1fr);gap:20px;position:relative}
+.steps::before{content:"";position:absolute;left:28px;right:calc(100% / 6 - 28px);top:28px;height:2px;background:linear-gradient(90deg,var(--teal),var(--mint));opacity:.35}
+.step{position:relative}
+.step .ic{width:56px;height:56px;border-radius:50%;background:var(--deep);display:grid;place-items:center;position:relative;z-index:1;box-shadow:0 0 0 6px var(--white)}
+.step .ic svg{width:24px;height:24px;stroke:var(--mint);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.step.hl .ic{background:var(--teal)}
+.step.hl .ic svg{stroke:#fff}
+.step .no{display:block;margin-top:18px;font-family:var(--head);font-weight:700;font-size:12px;letter-spacing:.14em;color:var(--teal-ink)}
+.step h3{font-family:var(--head);font-size:18px;margin:4px 0 6px}
 .step p{margin:0;font-size:14.5px;color:var(--muted);line-height:1.5}
-.step.hl .dot{background:var(--teal);color:#fff}
+.pay{display:inline-block;margin-top:10px;font-family:var(--head);font-weight:600;font-size:12px;padding:4px 10px;border-radius:999px;background:rgba(26,122,122,.12);color:var(--teal-ink)}
 
 .split{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
 .split p{color:var(--muted)}
@@ -210,8 +214,12 @@ a{color:inherit}
   .pillars,.aud{grid-template-columns:1fr}
   .cards{grid-template-columns:1fr}
   .split{grid-template-columns:1fr;gap:36px}
-  .steps{grid-template-columns:1fr 1fr;row-gap:30px}
-  .steps::before{display:none}
+  .steps{grid-template-columns:1fr;gap:0;max-width:620px}
+  .steps::before{left:27px;right:auto;top:28px;bottom:56px;width:2px;height:auto;background:linear-gradient(180deg,var(--teal),var(--mint))}
+  .step{display:grid;grid-template-columns:56px 1fr;gap:18px;padding-bottom:22px}
+  .step .tx{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:14px 18px;box-shadow:var(--shadow)}
+  .step .no{margin-top:0}
+  .hero .wrap{gap:28px}
   .sec{padding-block:72px}
 }
 @media (max-width:760px){
@@ -227,7 +235,6 @@ a{color:inherit}
 @media (max-width:480px){
   body{font-size:16px}
   .wrap{width:min(1180px,100% - 32px)}
-  .steps{grid-template-columns:1fr}
   .card{padding:26px}
 }
 </style>
@@ -255,16 +262,13 @@ a{color:inherit}
   <section class="hero" id="inizio">
     <div class="wrap">
       <div>
-        <span class="eyebrow">Digital Trade Infrastructure</span>
+        <span class="eyebrow">End to End Supply Solutions</span>
         <h1>Dall'Asia all'Italia, ogni passaggio <em>sotto controllo</em>.</h1>
         <p class="lead">Reweke tiene insieme la filiera tra Asia e Italia: sourcing dai produttori, import via mare, spedizioni sul territorio. Un solo interlocutore e un portale, MyReweke, per seguire ogni ordine.</p>
         <div class="cta">
           <a class="btn btn-primary" href="#contatti">Parla con noi</a>
           <a class="btn btn-ghost" href="#servizi">Scopri i servizi</a>
         </div>
-        <ul class="chips" aria-label="Aree di attività">
-          <li>Sourcing</li><li>Import via mare</li><li>Logistica in Italia</li><li>Visite in fabbrica</li><li>Portale MyReweke</li>
-        </ul>
       </div>
 
       <svg class="route" viewBox="0 0 560 400" role="img" aria-label="Schema della filiera: produttore in Cina, controllo qualità, viaggio via mare, dogana e consegna al cliente in Italia">
@@ -368,12 +372,12 @@ a{color:inherit}
         <p class="intro">Dalla specifica tecnica alla consegna, con checkpoint definiti e responsabilità assegnate.</p>
       </div>
       <div class="steps">
-        <div class="step rev"><div class="dot">1</div><h3>Brief</h3><p>Specifica tecnica e obiettivo di costo.</p></div>
-        <div class="step rev"><div class="dot">2</div><h3>Scouting</h3><p>Ricerca diretta tra i produttori qualificati.</p></div>
-        <div class="step rev"><div class="dot">3</div><h3>Campionatura</h3><p>Prototipo fisico e validazione della qualità.</p></div>
-        <div class="step rev hl"><div class="dot">4</div><h3>Ordine</h3><p>Conferma con acconto del 30%.</p></div>
-        <div class="step rev"><div class="dot">5</div><h3>Controllo qualità</h3><p>Verifica prima della spedizione.</p></div>
-        <div class="step rev hl"><div class="dot">6</div><h3>Spedizione</h3><p>Saldo del 70% e tracking fino alla consegna.</p></div>
+        <div class="step rev"><div class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="4" width="12" height="17" rx="2"/><path d="M9 4V3h6v1M9 10h6M9 14h6"/></svg></div><div class="tx"><span class="no">01</span><h3>Brief</h3><p>Specifica tecnica e obiettivo di costo.</p></div></div>
+        <div class="step rev"><div class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="m20 20-4.2-4.2"/></svg></div><div class="tx"><span class="no">02</span><h3>Scouting</h3><p>Ricerca diretta tra i produttori qualificati.</p></div></div>
+        <div class="step rev"><div class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7l9-4 9 4-9 4z"/><path d="M3 7v10l9 4 9-4V7"/><path d="M12 11v10"/></svg></div><div class="tx"><span class="no">03</span><h3>Campionatura</h3><p>Prototipo fisico e validazione della qualità.</p></div></div>
+        <div class="step rev hl"><div class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m8 12 3 3 5-6"/></svg></div><div class="tx"><span class="no">04</span><h3>Ordine</h3><p>Conferma dell'ordine con acconto.</p><span class="pay">Acconto 30%</span></div></div>
+        <div class="step rev"><div class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l7 3v5c0 5-3 8-7 10-4-2-7-5-7-10V6z"/><path d="m9 12 2 2 4-4"/></svg></div><div class="tx"><span class="no">05</span><h3>Controllo qualità</h3><p>Verifica prima della spedizione.</p></div></div>
+        <div class="step rev hl"><div class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 15h18l-2 4H5z"/><path d="M6 15V9h5v6M11 15V6h7v9"/><path d="M12 4V2"/></svg></div><div class="tx"><span class="no">06</span><h3>Spedizione</h3><p>Saldo e tracking fino alla consegna.</p><span class="pay">Saldo 70%</span></div></div>
       </div>
     </div>
   </section>
@@ -393,7 +397,7 @@ a{color:inherit}
           <li><strong>Ruoli e permessi.</strong> Ogni persona vede e approva solo ciò che le compete.</li>
           <li><strong>Integrazioni.</strong> API per collegare il portale ai tuoi gestionali e al tuo e-commerce.</li>
         </ul>
-        <a class="btn btn-primary" href="mailto:info@reweke.it?subject=Richiesta%20di%20accesso%20a%20MyReweke">Richiedi l'accesso</a>
+        <a class="btn btn-primary" href="mailto:info@reweke.it?subject=Richiesta%20di%20informazioni%20su%20MyReweke">Richiedi maggiori info</a>
       </div>
       <div class="rev">
         <div class="mock" aria-hidden="true">
